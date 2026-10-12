@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+:root {
+  --paper: #f6f7f7;
+  --ink: #15191b;
+  --muted: #5d676c;
+  --line: #e2e5e6;
+  --teal: #1c9995;
+  --teal-soft: #6fdad5;
+
+  /* simulation (dark) surfaces */
+  --canvas: #111517;
+  --surface: #1a2023;
+  --surface-2: #20272b;
+  --stroke: #2b3438;
+  --text: #e8eced;
+  --text-dim: #8d999e;
+
+  --tone-healthy: #1c9995;
+  --tone-warning: #d9a441;
+  --tone-error: #e5645a;
+  --tone-pending: #7b93b8;
+  --tone-idle: #6c777c;
+  --tone-inactive: #3a444a;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-teal: var(--teal);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-stroke: var(--stroke);
+  --color-text: var(--text);
+  --color-dim: var(--text-dim);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* React Flow, themed for the dark simulation canvas */
+.flow-canvas .react-flow {
+  --xy-background-color: var(--canvas);
+  --xy-controls-button-background-color: var(--surface);
+  --xy-controls-button-background-color-hover: var(--surface-2);
+  --xy-controls-button-color: var(--text);
+  --xy-controls-button-border-color: var(--stroke);
+  --xy-attribution-background-color: transparent;
+  --xy-edge-stroke: var(--stroke);
+}
+.flow-canvas .react-flow__controls {
+  box-shadow: none;
+  border: 1px solid var(--stroke);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.flow-canvas .react-flow__controls-button svg {
+  fill: currentColor;
+}
+.flow-canvas .react-flow__attribution {
+  display: none;
+}
+.flow-canvas .react-flow__node {
+  cursor: pointer;
+}
+.flow-canvas .react-flow__node:focus-visible > div {
+  outline: 2px solid var(--teal-soft);
+  outline-offset: 2px;
+}
+
+input[type="range"].flow-range {
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--stroke);
+  outline: none;
+}
+input[type="range"].flow-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--text);
+  border: 2px solid var(--teal);
+  cursor: pointer;
+}
+input[type="range"].flow-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--text);
+  border: 2px solid var(--teal);
+  cursor: pointer;
+}
+input[type="range"].flow-range:focus-visible {
+  outline: 2px solid var(--teal-soft);
+  outline-offset: 4px;
+}
